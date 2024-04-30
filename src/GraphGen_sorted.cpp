@@ -85,7 +85,7 @@ bool GraphGen_sorted::GenerateGraph(
 		const bool directedGraph
 		) {
 
-	std::vector<Square> squares ( 1, Square( 0, nVertices, 0, nVertices, nEdges, 0, 0, 0 ) );
+	std::vector<Square> squares ( 1, Square( 1, nVertices, 1, nVertices, nEdges, 0, 0, 0 ) );
 
 	while( !Eligible_RNG_Squares(squares, standardCapacity ) ) {
 		// For sorted version, we break down all the rectangles each time there's a non-eligible rectangle.
