@@ -119,7 +119,9 @@ int main( int argc, char ** argv ) {
 				"Up to about "<< (RAM_usage*100.0) << " percent of RAM can be used by this program." << "\n" <<
 				"Specified graph may" << (allowEdgeToSelf?" ":" NOT ") << "contain edges that have same source and destination index." << "\n" <<
 				"Specified graph may" << (allowDuplicateEdges?" ":" NOT ") << "contain duplicate edges." << "\n" <<
-				"Specified graph will be " << (directedGraph?"DIRECTED.":"UNDIRECTED.") << "\n";
+				"Specified graph will be " << (directedGraph?"DIRECTED.":"UNDIRECTED.") << "\n" <<
+				"The vertex id will " << (START_VERTEX_ID_FROM_1?"START FROM 1.":"START FROM 0.") << "\n";
+
 
 		auto totalSystemRAM = static_cast<unsigned long long>(getTotalSystemMemory());	// In bytes.
 		auto availableSystemRAM = calculateAvailableRAM( totalSystemRAM, RAM_usage );	// In bytes.
@@ -141,7 +143,7 @@ int main( int argc, char ** argv ) {
 	try{
 
 		// Start the work.
-		--nVertices;
+		--nVertices; //FIXME: why are we decrementing nVertices?
 		auto fOutcome = sorted ?	GraphGen_sorted::GenerateGraph( nEdges, nVertices, a, b, c, nCPUWorkerThreads, outf, standardCapacity, allowEdgeToSelf, allowDuplicateEdges, directedGraph ) :
 									GraphGen_notSorted::GenerateGraph( nEdges, nVertices, a, b, c, nCPUWorkerThreads, outf, standardCapacity, allowEdgeToSelf, allowDuplicateEdges, directedGraph );
 		if( fOutcome == EXIT_FAILURE ) {

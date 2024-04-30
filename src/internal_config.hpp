@@ -29,4 +29,7 @@ static const bool USE_FUTURES_INSTEAD_OF_EXPLICIT_THREADS = false;
 // Enabling it makes the non-sorted output get created by a mutex, that controls the exclusiveness of the writes to file, instead of using concurrent queues.
 static const bool USE_A_MUTEX_TO_CONTROL_WRITE_TO_FILE_INSTEAD_OF_CONCURRENT_QUEUES = false;
 
+// Enabling this starts the vertex id from 1 instead of 0.
+static const bool START_VERTEX_ID_FROM_1 = false;
+
 #endif	//	INTERNAL_CONFIG_HPP
